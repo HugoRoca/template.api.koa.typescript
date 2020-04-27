@@ -1,4 +1,5 @@
 # Directories
+.vscode/
 .cache/
 node_modules/
 dist/
@@ -7,7 +8,6 @@ tmp/
 
 # Logs
 *.log
-*lock
 
 # Generated files
 .DS_Store
@@ -17,4 +17,9 @@ Thumbs.db
 *.lock
 
 # Properties
-# .env
+.env
+
+# Others
+.editorconfig
+.gitignore
+README.md
