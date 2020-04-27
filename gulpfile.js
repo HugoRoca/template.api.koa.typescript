@@ -1,22 +1,23 @@
-const { src, dest, parallel } = require("gulp")
-const uglify = require("gulp-uglify-es").default
-const cp = require("gulp-copy")
+/* eslint-disable no-underscore-dangle */
+import { src, dest } from 'gulp'
+import uglify from 'gulp-uglify-es'
+import cp from 'gulp-copy'
 
 function compress() {
-  return src(".cache/src/**/*.js")
-    .pipe(uglify())
-    .pipe(dest("dist"))
+  return src('.cache/src/**/*.js').pipe(uglify()).pipe(dest('dist'))
 }
 
 function copy() {
   return src([
-    "env.yaml",
-    "src/**/*.yml",
-    "src/**/*.json",
-    "src/**/*.gql",
-    "src/bin/*",
-  ]).pipe(cp("./dist", { prefix: 1 }))
+    'env.yaml',
+    'src/**/*.yml',
+    'src/**/*.json',
+    'src/**/*.gql',
+    'src/bin/*',
+  ]).pipe(cp('./dist', { prefix: 1 }))
 }
 
-exports.compress = compress
-exports.copy = copy
+const _compress = compress
+export { _compress as compress }
+const _copy = copy
+export { _copy as copy }

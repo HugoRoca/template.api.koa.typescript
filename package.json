@@ -23,6 +23,7 @@
     "cross-env": "^7.0.2",
     "helmet-csp": "^2.10.0",
     "http-errors": "^1.7.3",
+    "ioredis": "^4.16.3",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
     "koa-compress": "^3.1.0",
@@ -33,8 +34,10 @@
     "yenv": "^2.1.1"
   },
   "devDependencies": {
+    "@types/fancy-log": "^1.3.1",
     "@types/hapi__joi": "^16.0.12",
     "@types/http-errors": "^1.6.3",
+    "@types/ioredis": "^4.14.9",
     "@types/jest": "^25.2.1",
     "@types/koa": "^2.11.3",
     "@types/koa-bodyparser": "^4.3.0",
@@ -51,6 +54,10 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-prettier": "^3.1.3",
+    "fancy-log": "^1.3.3",
+    "gulp": "^4.0.2",
+    "gulp-copy": "^4.0.1",
+    "gulp-uglify-es": "^2.0.0",
     "jest": "^25.4.0",
     "jest-extended": "^0.11.5",
     "jest-html-reporter": "^3.1.0",
@@ -60,7 +67,7 @@
     "rimraf": "^3.0.2",
     "supertest": "^4.0.2",
     "ts-jest": "^25.4.0",
-    "ts-node": "^8.9.0",
+    "ts-node": "^8.9.1",
     "typescript": "^3.8.3"
   }
 }
