@@ -4,7 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf .cache dist reports tmp",
+    "lint:code": "eslint --ext ts src/ -f stylish",
+    "lint:test": "eslint --ext ts test/ -f stylish",
+    "lint:report": "eslint --ext ts src/ -f html -o reports/lint.html",
+    "format": "prettier --write src/**/*.ts",
+    "format:fix": "eslint --ext ts src --fix",
+    "predevelop": "npm run clean && npm run lint:code",
+    "develop": "nodemon ./src/server.ts",
+    "pretest": "npm run clean && npm run lint:report",
+    "test": "NODE_ENV=test jest --passWithNoTests",
+    "test:unit": "npm test -- test/unit",
+    "test:integration": "npm test -- test/integration",
+    "test:coverage": "npm test -- --coverage",
+    "test:coverage:unit": "npm run test:unit -- --coverage",
+    "test:coverage:integration": "npm run test:integration -- --coverage",
+    "prebuild": "npm run clean && npm run lint:report",
+    "build": "tsc && gulp compress && gulp copy",
+    "serve": "cross-env NODE_ENV=production node ./dist/bin/api"
   },
   "repository": {
     "type": "git",
