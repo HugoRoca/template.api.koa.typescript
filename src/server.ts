@@ -28,7 +28,7 @@ server
   .use(apiError)
   .use(docs)
 
-routes.map(x => {
+routes.map((x) => {
   server.use(x.routes()).use(x.allowedMethods())
 })
 
