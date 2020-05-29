@@ -8,6 +8,7 @@ import compress from './utils/compress'
 import notFavicon from './utils/api-not-favicon'
 import apiError from './utils/api-error'
 import docs from './utils/api-docs'
+import routes from './routes'
 import {
   access as accessLogger,
   error as errorLogger,
@@ -26,6 +27,10 @@ server
   .use(notFavicon)
   .use(apiError)
   .use(docs)
+
+routes.map(x => {
+  server.use(x.routes()).use(x.allowedMethods())
+})
 
 if (env.NODE_ENV !== 'test') {
   server.listen(PORT, '0.0.0.0', () =>
